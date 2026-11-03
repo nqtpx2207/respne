@@ -1,0 +1,97 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.95em;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure {
+    margin: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #cccccc;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+figcaption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Mobile View: Mobile-first approach, 1 column grid, 10px gap */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+/* Tablet View: triggers at 772px, 2 columns, circular figures, last figure spans 2 columns */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    figure {
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Large Screen View: triggers at 992px, every 3rd figure spans 2 columns, remove border-radius */
+@media screen and (min-width: 992px) {
+    figure {
+        border-radius: 0;
+    }
+
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+}
+
+/* Accessibility: prefers-reduced-motion media query removes smooth scroll behavior */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Dark Mode: prefers-color-scheme: dark */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #1e272e;
+        color: #f6e58d;
+        border-color: #000000;
+    }
+}
